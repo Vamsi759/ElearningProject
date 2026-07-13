@@ -84,17 +84,22 @@ public class InsController {
 		String mail = us.getEmail();
 		String pass = us.getPassword();
 
-		List<UserRecord> ap = i.getallu();
+		List<UserRecord> ap = i.getallu();  // get all user records 
 		int r = 0;
 		if (us.getEmail().equals("admin@admin") && us.getPassword().equals("admin")) {
 			return "adminhome";
 		}
+		
+		// ----------------
+		
 		for (int i = 0; i < ap.size(); i++) {
 			UserRecord rp = ap.get(i);
 			if (rp.getEmail().equals(mail) && rp.getPassword().equals(pass)) {
 				return "loginsucesshome";
 			}
 		}
+		
+		// -------------
 
 		return "loginfail";
 	}
